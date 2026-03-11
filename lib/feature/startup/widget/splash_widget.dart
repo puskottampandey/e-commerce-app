@@ -1,4 +1,6 @@
+import 'package:e_commerce_app/core/constant/assets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SplashWidget extends StatefulWidget {
   const SplashWidget({super.key});
@@ -12,10 +14,8 @@ class _SplashWidgetState extends State<SplashWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.deepPurple,
-        child: Center(
-          child: Text("Online Shopping", style: TextStyle(color: Colors.white)),
-        ),
+        color: Colors.white,
+        child: Center(child: Image.asset(Assets.appIcon, width: 500.w)),
       ),
     );
   }
