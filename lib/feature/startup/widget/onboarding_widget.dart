@@ -1,6 +1,8 @@
 import 'package:e_commerce_app/core/constant/assets.dart';
-import 'package:e_commerce_app/core/theme/app_theme.dart';
+import 'package:e_commerce_app/core/theme/constant_color.dart';
+import 'package:e_commerce_app/core/widget/app_padding.dart';
 import 'package:e_commerce_app/feature/startup/bloc/onboarding_screen_model.dart';
+import 'package:e_commerce_app/feature/startup/widget/pageview_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -21,52 +23,25 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+        child: AppPadding(
           child: Column(
             children: [
               Align(
                 alignment: AlignmentGeometry.topEnd,
-                child: Text(
-                  "Skip",
-                  style: TextStyle(
-                    fontSize: 12.sp,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.deepPurple,
+                child: InkWell(
+                  autofocus: true,
+                  onTap: () {},
+                  child: Text(
+                    "Skip",
+                    style: textTheme.bodySmall?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.primaryColor,
+                    ),
                   ),
                 ),
               ),
               SizedBox(height: 30.h),
-              Expanded(
-                child: PageView.builder(
-                  itemCount: onBoardingScreen.length,
-                  controller: controller,
-
-                  itemBuilder: (context, index) {
-                    final data = onBoardingScreen[index];
-                    return Column(
-                      children: [
-                        Image.asset(Assets.appIcon),
-                        Text(
-                          data.title,
-                          textAlign: TextAlign.center,
-                          style: textTheme.displaySmall,
-                        ),
-                        SizedBox(height: 10.h),
-                        Text(
-                          data.description,
-                          textAlign: TextAlign.center,
-                          style: textTheme.bodyLarge,
-                        ),
-                      ],
-                    );
-                  },
-                ),
-              ),
-              IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.forward, color: Colors.deepPurple),
-              ),
+              PageViewBuilder(controller: controller, textTheme: textTheme),
             ],
           ),
         ),

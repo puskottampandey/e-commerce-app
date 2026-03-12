@@ -1,3 +1,5 @@
+import 'package:e_commerce_app/core/constant/assets.dart';
+
 class OnboardingScreenModel {
   final String title;
   final String description;
@@ -14,18 +16,18 @@ final List<OnboardingScreenModel> onBoardingScreen = [
     title: "Discover Amazing Products",
     description:
         "Explore thousands of products from different categories and find exactly what you need in seconds.",
-    image: "",
+    image: Assets.onboardingSceenFirst,
   ),
   OnboardingScreenModel(
-    title: "Discover Amazing Products",
+    title: "Easy and Secure Shopping",
     description:
-        "Explore thousands of products from different categories and find exactly what you need in seconds.",
-    image: "",
+        "Add products to your cart, enjoy a smooth checkout process, and pay securely.",
+    image: Assets.onboardingSceenSecond,
   ),
   OnboardingScreenModel(
-    title: "Discover Amazing Products",
+    title: "Shop Your Favorites",
     description:
-        "Explore thousands of products from different categories and find exactly what you need in seconds.",
-    image: "",
+        "Browse trending products and discover amazing deals every day.",
+    image: Assets.onboardingSceenThird,
   ),
 ];
