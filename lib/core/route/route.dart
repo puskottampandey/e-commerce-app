@@ -1,4 +1,4 @@
 class Routes {
   static const root = "/";
-  static const splashScreen = "/splashScreen";
+  static const onBoardingScreen = "/onboardingScreen";
 }

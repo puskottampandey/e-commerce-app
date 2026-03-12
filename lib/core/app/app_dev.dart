@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/core/route/app_router.dart';
+import 'package:e_commerce_app/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -18,6 +19,7 @@ class _AppState extends State<App> {
       splitScreenMode: false,
       builder: (context, child) {
         return MaterialApp.router(
+          theme: AppTheme.theme,
           debugShowCheckedModeBanner: false,
           routerConfig: AppRouter.router,
         );
