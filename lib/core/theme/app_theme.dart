@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/core/theme/constant_color.dart';
 import 'package:flutter/material.dart';
 
 class AppTheme {
@@ -5,6 +6,7 @@ class AppTheme {
 
   static const white = Color(0xFFFFFFFF);
   static final theme = ThemeData(
+    scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor,
     fontFamily: "GoogleSans",
     textTheme: const TextTheme(
       displayLarge: TextStyle(

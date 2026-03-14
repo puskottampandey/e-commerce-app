@@ -26,9 +26,9 @@ class _CustomRoundedButtonState extends State<CustomRoundedButton> {
     return SizedBox(
       height: 60.h,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 12.h),
+        padding: EdgeInsets.symmetric(horizontal: 0, vertical: 12.h),
         child: Material(
-          elevation: 2,
+          elevation: 0,
           color: AppColors.primaryColor,
           borderRadius: BorderRadius.circular(16.r),
           child: InkWell(
