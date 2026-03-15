@@ -6,7 +6,7 @@ class AppTheme {
 
   static const white = Color(0xFFFFFFFF);
   static final theme = ThemeData(
-    scaffoldBackgroundColor: AppColors.scaffoldBackgroundColor,
+    scaffoldBackgroundColor: AppColors.white,
     fontFamily: "GoogleSans",
     textTheme: const TextTheme(
       displayLarge: TextStyle(

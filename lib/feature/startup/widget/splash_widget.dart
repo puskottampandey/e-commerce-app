@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/core/constant/assets.dart';
 import 'package:e_commerce_app/core/route/route.dart';
+import 'package:e_commerce_app/core/theme/constant_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -28,11 +29,11 @@ class _SplashWidgetState extends State<SplashWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.primaryColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: [Center(child: Image.asset(Assets.appIcon, width: 200.w))],
+        children: [Center(child: Image.asset(Assets.splashIcon, width: 200.w))],
       ),
     );
   }

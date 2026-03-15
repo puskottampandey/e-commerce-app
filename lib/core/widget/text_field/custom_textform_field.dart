@@ -48,7 +48,13 @@ class _CustomTextformFieldState extends State<CustomTextformField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(widget.title),
+        Text(
+          widget.title,
+          style: theme.textTheme.displaySmall?.copyWith(
+            fontSize: 14.sp,
+            color: AppColors.greySecondaryColor,
+          ),
+        ),
         SizedBox(height: 4.h),
         Material(
           elevation: 0.0,
@@ -76,6 +82,7 @@ class _CustomTextformFieldState extends State<CustomTextformField> {
                       },
                       icon: Icon(
                         _obscureText ? Icons.visibility_off : Icons.visibility,
+                        color: AppColors.greyverylight,
                       ),
                     )
                   : null,
@@ -84,29 +91,28 @@ class _CustomTextformFieldState extends State<CustomTextformField> {
                 color: AppColors.red,
               ),
               floatingLabelAlignment: FloatingLabelAlignment.start,
-              fillColor: AppColors.white,
+              fillColor: AppColors.textfilledColor,
               filled: true,
               hintText: widget.hintText,
               hintStyle: textTheme.bodyMedium?.copyWith(
-                color: AppColors.greylight,
+                color: AppColors.greyverylight,
               ),
               errorBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: AppColors.red, width: 2),
+                borderSide: BorderSide(color: AppColors.red),
                 borderRadius: BorderRadius.circular(8.r),
               ),
               focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: AppColors.primaryColor, width: 2),
+                borderSide: BorderSide(color: AppColors.primaryColor),
                 borderRadius: BorderRadius.circular(8.r),
               ),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: AppColors.trasparentColor,
-                  width: 2,
+                  color: AppColors.textformfieldBorderColor,
                 ),
                 borderRadius: BorderRadius.circular(8.r),
               ),
               focusedErrorBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: AppColors.red, width: 2),
+                borderSide: BorderSide(color: AppColors.red),
                 borderRadius: BorderRadius.circular(8.r),
               ),
               disabledBorder: OutlineInputBorder(
@@ -117,7 +123,7 @@ class _CustomTextformFieldState extends State<CustomTextformField> {
                 borderRadius: BorderRadius.circular(8.r),
               ),
               border: OutlineInputBorder(
-                borderSide: BorderSide(color: AppColors.primaryColor, width: 2),
+                borderSide: BorderSide(color: AppColors.primaryColor),
                 borderRadius: BorderRadius.circular(8.r),
               ),
             ),

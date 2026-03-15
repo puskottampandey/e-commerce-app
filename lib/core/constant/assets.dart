@@ -13,4 +13,6 @@ class Assets {
       "$_basePathSvg/onboarding_imageSecond$_gif";
   static const onboardingSceenThird =
       "$_basePathSvg/onboarding_imageThird$_gif";
+  static const appIcons = "$_basePath/app_icon$_png";
+  static const splashIcon = "$_basePath/splash_icon$_png";
 }
