@@ -9,4 +9,6 @@ class AppColors {
   static const primarylightColor = Color.fromARGB(255, 217, 198, 239);
   static const greylight = Color(0xFF9E9E9E);
   static const scaffoldBackgroundColor = Color(0xFFF5F5F5);
+  static const red = Color(0xffFF0000);
+  static const trasparentColor = Colors.transparent;
 }

@@ -14,6 +14,10 @@ class CustomTextformField extends StatefulWidget {
   final String? errorText;
   final TextInputAction textInputAction;
   final bool autoFocus;
+  final Function(String)? onChanged;
+  final Widget? suffixIcon;
+  final bool isPassword;
+
   const CustomTextformField({
     super.key,
     required this.title,
@@ -26,6 +30,9 @@ class CustomTextformField extends StatefulWidget {
     this.errorText,
     this.textInputAction = TextInputAction.next,
     this.autoFocus = false,
+    this.onChanged,
+    this.suffixIcon,
+    this.isPassword = false,
   });
 
   @override
@@ -33,6 +40,7 @@ class CustomTextformField extends StatefulWidget {
 }
 
 class _CustomTextformFieldState extends State<CustomTextformField> {
+  bool _obscureText = true;
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -41,10 +49,10 @@ class _CustomTextformFieldState extends State<CustomTextformField> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(widget.title),
-        SizedBox(height: 10.h),
+        SizedBox(height: 4.h),
         Material(
           elevation: 0.0,
-          color: AppColors.white,
+          color: Colors.transparent,
           child: TextFormField(
             forceErrorText: widget.errorText,
             key: Key(widget.fieldKey),
@@ -54,10 +62,59 @@ class _CustomTextformFieldState extends State<CustomTextformField> {
             textInputAction: widget.textInputAction,
             textAlignVertical: TextAlignVertical.center,
             autofocus: widget.autoFocus,
+            onChanged: widget.onChanged,
+            cursorColor: AppColors.primaryColor,
+            cursorErrorColor: AppColors.red,
+            obscureText: widget.isPassword ? _obscureText : false,
             decoration: InputDecoration(
+              suffixIcon: widget.isPassword
+                  ? IconButton(
+                      onPressed: () {
+                        setState(() {
+                          _obscureText = !_obscureText;
+                        });
+                      },
+                      icon: Icon(
+                        _obscureText ? Icons.visibility_off : Icons.visibility,
+                      ),
+                    )
+                  : null,
+              errorMaxLines: 2,
+              errorStyle: theme.textTheme.bodySmall?.copyWith(
+                color: AppColors.red,
+              ),
+              floatingLabelAlignment: FloatingLabelAlignment.start,
+              fillColor: AppColors.white,
+              filled: true,
               hintText: widget.hintText,
               hintStyle: textTheme.bodyMedium?.copyWith(
                 color: AppColors.greylight,
+              ),
+              errorBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: AppColors.red, width: 2),
+                borderRadius: BorderRadius.circular(8.r),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: AppColors.primaryColor, width: 2),
+                borderRadius: BorderRadius.circular(8.r),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: AppColors.trasparentColor,
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(8.r),
+              ),
+              focusedErrorBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: AppColors.red, width: 2),
+                borderRadius: BorderRadius.circular(8.r),
+              ),
+              disabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(
+                  color: AppColors.trasparentColor,
+                  width: 2,
+                ),
+                borderRadius: BorderRadius.circular(8.r),
               ),
               border: OutlineInputBorder(
                 borderSide: BorderSide(color: AppColors.primaryColor, width: 2),
