@@ -16,4 +16,5 @@ class AppColors {
   static const trasparentColor = Colors.transparent;
   static const textfilledColor = Color(0xffF8FAFC);
   static const textformfieldBorderColor = Color(0xffE2E8F0);
+  static const authTextColor = Color(0xff334155);
 }

@@ -5,6 +5,10 @@ import 'package:e_commerce_app/core/widget/button/custom_rounded_button.dart';
 import 'package:e_commerce_app/core/widget/check_box.dart/check_box_login.dart';
 import 'package:e_commerce_app/core/widget/padding/app_padding.dart';
 import 'package:e_commerce_app/core/widget/text_field/custom_textform_field.dart';
+import 'package:e_commerce_app/feature/authentication/widget/auth_logo_widget.dart';
+import 'package:e_commerce_app/feature/authentication/widget/bottom_text_widget.dart';
+import 'package:e_commerce_app/feature/authentication/widget/expanded_divider.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -20,7 +24,7 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passWordController = TextEditingController();
   bool _isAlreadyValidate = false;
-
+  bool _rememberMe = false;
   @override
   void dispose() {
     _emailController.dispose();
@@ -113,12 +117,18 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                   ],
                 ),
               ),
-
               SizedBox(height: 10.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  // CheckBoxLogin(),
+                  CheckBoxLogin(
+                    onChange: (value) {
+                      setState(() {
+                        _rememberMe = value;
+                      });
+                    },
+                    checkBoxText: "Remember me",
+                  ),
                   Text(
                     "Forgot Password?",
                     style: theme.textTheme.labelLarge?.copyWith(
@@ -130,11 +140,45 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                 ],
               ),
               CustomRoundedButton(onTap: login, title: "Sign in"),
-              Row(children: [Divider(), Text("Or continue with "), Divider()]),
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ExpandedDivider(),
+                  sizebox(),
+                  Text(
+                    "Or continue with ",
+                    style: theme.textTheme.bodyMedium?.copyWith(
+                      color: AppColors.greyverylight,
+                    ),
+                  ),
+                  sizebox(),
+                  ExpandedDivider(),
+                ],
+              ),
+              SizedBox(height: 20.h),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  AuthLogoWidget(
+                    authLogo: Assets.googleLogo,
+                    authName: "Google",
+                    onTap: () {},
+                  ),
+                  AuthLogoWidget(
+                    authLogo: Assets.appleLogo,
+                    authName: "Apple",
+                    onTap: () {},
+                  ),
+                ],
+              ),
+              SizedBox(height: 30.h),
+              BottomTextWidget(textTheme: textTheme),
             ],
           ),
         ),
       ),
     );
   }
+
+  SizedBox sizebox() => SizedBox(width: 8.w);
 }

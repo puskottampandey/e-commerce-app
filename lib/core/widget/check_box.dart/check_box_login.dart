@@ -4,14 +4,38 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CheckBoxLogin extends StatefulWidget {
   final String checkBoxText;
-  const CheckBoxLogin({super.key, required this.checkBoxText});
+  final ValueChanged<bool> onChange;
+  final bool? initialValue;
+  const CheckBoxLogin({
+    super.key,
+    required this.checkBoxText,
+    required this.onChange,
+    this.initialValue,
+  });
 
   @override
   State<CheckBoxLogin> createState() => _CheckBoxLoginState();
 }
 
 class _CheckBoxLoginState extends State<CheckBoxLogin> {
-  bool _value = true;
+  bool _value = false;
+  void changeHandler() {
+    setState(() {
+      setState(() {
+        _value = !_value;
+      });
+      widget.onChange(_value);
+    });
+  }
+
+  @override
+  void initState() {
+    if (widget.initialValue != null) {
+      _value = widget.initialValue!;
+    }
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -22,14 +46,22 @@ class _CheckBoxLoginState extends State<CheckBoxLogin> {
         Checkbox(
           checkColor: AppColors.primaryColor,
           activeColor: AppColors.textformfieldBorderColor,
-          value: false,
+          value: _value,
           visualDensity: VisualDensity.compact,
-
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(4.r),
+          ),
           side: BorderSide(width: 2, color: AppColors.textformfieldBorderColor),
-          onChanged: (value) {},
+          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          onChanged: (value) => changeHandler(),
         ),
         TextButton(
-          onPressed: () {},
+          style: TextButton.styleFrom(
+            padding: EdgeInsets.zero, // remove default padding
+            minimumSize: Size.zero,
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          ),
+          onPressed: changeHandler,
           child: Text(
             "Remember me",
             style: theme.textTheme.displayMedium?.copyWith(
