@@ -130,6 +130,7 @@ class _CustomTextformFieldState extends State<CustomTextformField> {
             validator: widget.validator,
           ),
         ),
+        SizedBox(height: 10.h),
       ],
     );
   }

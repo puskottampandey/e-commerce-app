@@ -27,11 +27,6 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
   final TextEditingController _passWordController = TextEditingController();
   bool _isAlreadyValidate = false;
   bool _rememberMe = false;
-  @override
-  void dispose() {
-    _emailController.dispose();
-    super.dispose();
-  }
 
   void login() {
     setState(() {
@@ -49,6 +44,13 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
   }
 
   @override
+  void dispose() {
+    _emailController.dispose();
+    _passWordController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
@@ -60,7 +62,6 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
             title: "Welcome Back",
             subtitle: "Sign in to your account",
           ),
-
           Form(
             key: _formKey,
             child: Column(
@@ -82,7 +83,6 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                     );
                   },
                 ),
-                SizedBox(height: 10.h),
                 CustomTextformField(
                   suffixIcon: Icon(Icons.remove_red_eye),
                   fieldKey: "Password",
@@ -90,6 +90,7 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                   isPassword: true,
                   controller: _passWordController,
                   hintText: "Enter your password",
+                  textInputAction: TextInputAction.done,
                   onChanged: (p0) {
                     validateField();
                   },

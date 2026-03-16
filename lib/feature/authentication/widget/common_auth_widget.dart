@@ -9,8 +9,8 @@ class CommonAuthWidget extends StatelessWidget {
 
   const CommonAuthWidget({
     super.key,
-    required this.title,
     required this.subtitle,
+    required this.title,
   });
 
   @override
@@ -30,8 +30,10 @@ class CommonAuthWidget extends StatelessWidget {
         ),
         Text(
           subtitle,
+          textAlign: TextAlign.center,
           style: textTheme.bodyMedium?.copyWith(
             color: AppColors.greySecondaryColor,
+
             fontSize: 14.sp,
           ),
         ),
