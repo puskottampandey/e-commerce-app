@@ -21,7 +21,7 @@ class CommonAuthWidget extends StatelessWidget {
       children: [
         Image.asset(Assets.appIcons, height: 100.h),
         Text(
-          "Welcome Back",
+          title,
           style: theme.textTheme.displayMedium?.copyWith(
             color: AppColors.secondaryBlack,
             fontWeight: FontWeight.bold,
@@ -29,7 +29,7 @@ class CommonAuthWidget extends StatelessWidget {
           ),
         ),
         Text(
-          "Sign in to your account",
+          subtitle,
           style: textTheme.bodyMedium?.copyWith(
             color: AppColors.greySecondaryColor,
             fontSize: 14.sp,
