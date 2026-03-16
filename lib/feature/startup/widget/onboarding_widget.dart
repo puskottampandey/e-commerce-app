@@ -1,9 +1,11 @@
+import 'package:e_commerce_app/core/route/route.dart';
 import 'package:e_commerce_app/core/theme/constant_color.dart';
 import 'package:e_commerce_app/core/widget/button/custom_rounded_button.dart';
 import 'package:e_commerce_app/core/widget/padding/app_padding.dart';
 import 'package:e_commerce_app/feature/startup/bloc/onboarding_screen_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class OnboardingWidget extends StatefulWidget {
   const OnboardingWidget({super.key});
@@ -33,7 +35,9 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                 alignment: AlignmentGeometry.topEnd,
                 child: InkWell(
                   autofocus: true,
-                  onTap: () {},
+                  onTap: () {
+                    context.go(Routes.loginScreen);
+                  },
                   child: Text(
                     "Skip",
                     style: textTheme.bodySmall?.copyWith(
@@ -125,6 +129,9 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                   CustomRoundedButton(
                     title: pageChangeIndex == 2 ? "Get Started" : "Continue",
                     onTap: () {
+                      if (pageChangeIndex == 2) {
+                        context.go(Routes.loginScreen);
+                      }
                       controller.nextPage(
                         duration: const Duration(milliseconds: 300),
                         curve: Curves.easeIn,
