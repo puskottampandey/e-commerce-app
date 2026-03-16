@@ -3,9 +3,6 @@ class Regex {
     r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+",
   );
   static final RegExp phoneNumberRegex = RegExp(r'([9][678][0-6][0-9]{7})');
-
-  static final RegExp numberOnlyRegex = RegExp(r'^[0-9]+$');
-
   static final RegExp urlRegex = RegExp(
     r"^((http|https)://)[a-zA-Z0-9-]+(\.[a-zA-Z]{2,})+([a-zA-Z0-9@:%._\+~#?&//=]*)$",
   );

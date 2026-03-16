@@ -10,6 +10,7 @@ import 'package:e_commerce_app/feature/authentication/widget/auth_screen_wrapper
 import 'package:e_commerce_app/feature/authentication/widget/bottom_text_widget.dart';
 import 'package:e_commerce_app/feature/authentication/widget/common_auth_widget.dart';
 import 'package:e_commerce_app/feature/authentication/widget/expanded_divider.dart';
+import 'package:e_commerce_app/feature/authentication/widget/platform_login_widget.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -104,7 +105,7 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
               ],
             ),
           ),
-          SizedBox(height: 10.h),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -127,38 +128,10 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
             ],
           ),
           CustomRoundedButton(onTap: login, title: "Sign in"),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ExpandedDivider(),
-              sizebox(),
-              Text(
-                "Or continue with ",
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  color: AppColors.greyverylight,
-                ),
-              ),
-              sizebox(),
-              ExpandedDivider(),
-            ],
-          ),
+          ExpandedDivider(),
+          SizedBox(height: 10.h),
+          FamousPlatformLoginWidget(onTapApple: () {}, onTapGoogle: () {}),
           SizedBox(height: 20.h),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              AuthLogoWidget(
-                authLogo: Assets.googleLogo,
-                authName: "Google",
-                onTap: () {},
-              ),
-              AuthLogoWidget(
-                authLogo: Assets.appleLogo,
-                authName: "Apple",
-                onTap: () {},
-              ),
-            ],
-          ),
-          SizedBox(height: 30.h),
           BottomTextWidget(textTheme: textTheme),
         ],
       ),

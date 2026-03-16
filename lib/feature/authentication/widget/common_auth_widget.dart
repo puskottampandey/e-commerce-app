@@ -19,7 +19,7 @@ class CommonAuthWidget extends StatelessWidget {
     final textTheme = theme.textTheme;
     return Column(
       children: [
-        Image.asset(Assets.appIcons, height: 100.h),
+        Image.asset(Assets.appIcons, height: 50.h),
         Text(
           title,
           style: theme.textTheme.displayMedium?.copyWith(
@@ -37,7 +37,7 @@ class CommonAuthWidget extends StatelessWidget {
             fontSize: 14.sp,
           ),
         ),
-        SizedBox(height: 40.h),
+        SizedBox(height: 20.h),
       ],
     );
   }

@@ -35,7 +35,7 @@ class _CustomRoundedButtonState extends State<CustomRoundedButton> {
             borderRadius: BorderRadius.circular(32.r),
             onTap: widget.onTap,
             child: Container(
-              padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 20.h),
+              padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.h),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(32.r),
                 border: Border.all(color: theme.primaryColor),
