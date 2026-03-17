@@ -71,7 +71,7 @@ class _SignupScreenWidgetState extends State<SignupScreenWidget> {
                   controller: _nameController,
                   hintText: "Enter a full name",
                   fieldKey: "name",
-                  textInputAction: TextInputAction.next,
+                  prefixIcon: Icon(Icons.person),
                   validator: (value) {
                     return FormValidators.validateFieldNotEmpty(
                       value,
@@ -87,7 +87,7 @@ class _SignupScreenWidgetState extends State<SignupScreenWidget> {
                   controller: _emailController,
                   hintText: "Enter a email address",
                   fieldKey: "email",
-                  textInputAction: TextInputAction.next,
+                  prefixIcon: Icon(Icons.email),
                   validator: (value) {
                     return FormValidators.validateFieldNotEmpty(
                       value,
@@ -104,7 +104,7 @@ class _SignupScreenWidgetState extends State<SignupScreenWidget> {
                   isPassword: true,
                   hintText: "Enter a password",
                   fieldKey: "password",
-                  textInputAction: TextInputAction.next,
+                  prefixIcon: Icon(Icons.lock),
                   validator: (value) {
                     return FormValidators.validatePassword(value);
                   },
@@ -118,7 +118,6 @@ class _SignupScreenWidgetState extends State<SignupScreenWidget> {
                   hintText: "",
                   fieldKey: "confirm password",
                   textInputAction: TextInputAction.done,
-
                   validator: (value) {
                     return FormValidators.validateConfirmPassword(
                       value,
@@ -132,12 +131,12 @@ class _SignupScreenWidgetState extends State<SignupScreenWidget> {
               ],
             ),
           ),
-          CustomRoundedButton(onTap: signUp, title: "Sign up"),
+          CustomRoundedButton(onTap: signUp, title: "Sign Up"),
           ExpandedDivider(),
-          SizedBox(height: 10.h),
+          SizedBox(height: 8.h),
           FamousPlatformLoginWidget(onTapApple: () {}, onTapGoogle: () {}),
-          SizedBox(height: 20.h),
-          BottomTextWidget(textTheme: textTheme),
+          SizedBox(height: 8.h),
+          BottomTextWidget(textTheme: textTheme, tapText: "Sign In"),
         ],
       ),
     );

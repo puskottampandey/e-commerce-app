@@ -17,6 +17,7 @@ class CustomTextformField extends StatefulWidget {
   final Widget? suffixIcon;
   final bool isPassword;
   final bool isneeded;
+  final Widget? prefixIcon;
   const CustomTextformField({
     super.key,
     required this.title,
@@ -33,6 +34,7 @@ class CustomTextformField extends StatefulWidget {
     this.suffixIcon,
     this.isPassword = false,
     this.isneeded = true,
+    this.prefixIcon,
   });
 
   @override
@@ -101,6 +103,7 @@ class _CustomTextformFieldState extends State<CustomTextformField> {
                       ),
                     )
                   : null,
+              prefixIcon: widget.prefixIcon,
               errorMaxLines: 2,
               errorStyle: theme.textTheme.bodySmall?.copyWith(
                 color: AppColors.red,

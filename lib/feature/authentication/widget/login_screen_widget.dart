@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/core/route/route.dart';
 import 'package:e_commerce_app/core/theme/constant_color.dart';
 import 'package:e_commerce_app/core/utils/form_validators.dart';
 import 'package:e_commerce_app/core/widget/button/custom_rounded_button.dart';
@@ -10,6 +11,7 @@ import 'package:e_commerce_app/feature/authentication/widget/expanded_divider.da
 import 'package:e_commerce_app/feature/authentication/widget/platform_login_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginScreenWidget extends StatefulWidget {
   const LoginScreenWidget({super.key});
@@ -68,10 +70,9 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                   title: "Email Address",
                   controller: _emailController,
                   hintText: "example@gmail.com",
+                  prefixIcon: Icon(Icons.email),
                   onChanged: (p0) {
-                    if (_isAlreadyValidate) {
-                      _formKey.currentState!.validate();
-                    }
+                    validateField();
                   },
                   validator: (p0) {
                     return FormValidators.validateFieldNotEmpty(
@@ -87,7 +88,9 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                   isPassword: true,
                   controller: _passWordController,
                   hintText: "Enter your password",
+                  prefixIcon: Icon(Icons.lock),
                   textInputAction: TextInputAction.done,
+
                   onChanged: (p0) {
                     validateField();
                   },
@@ -113,22 +116,27 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                 },
                 checkBoxText: "Remember me",
               ),
-              Text(
-                "Forgot Password?",
-                style: theme.textTheme.labelLarge?.copyWith(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w500,
-                  color: AppColors.primaryColor,
+              GestureDetector(
+                onTap: () {
+                  context.push(Routes.forgotScreen);
+                },
+                child: Text(
+                  "Forgot Password?",
+                  style: theme.textTheme.labelLarge?.copyWith(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.primaryColor,
+                  ),
                 ),
               ),
             ],
           ),
-          CustomRoundedButton(onTap: login, title: "Sign in"),
+          CustomRoundedButton(onTap: login, title: "Sign In"),
           ExpandedDivider(),
           SizedBox(height: 10.h),
           FamousPlatformLoginWidget(onTapApple: () {}, onTapGoogle: () {}),
           SizedBox(height: 20.h),
-          BottomTextWidget(textTheme: textTheme),
+          BottomTextWidget(textTheme: textTheme, tapText: " Sign Up"),
         ],
       ),
     );

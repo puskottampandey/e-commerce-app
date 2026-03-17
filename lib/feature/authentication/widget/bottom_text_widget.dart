@@ -6,7 +6,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 
 class BottomTextWidget extends StatelessWidget {
-  const BottomTextWidget({super.key, required this.textTheme});
+  final String tapText;
+  const BottomTextWidget({
+    super.key,
+    required this.textTheme,
+    required this.tapText,
+  });
 
   final TextTheme textTheme;
 
@@ -22,7 +27,7 @@ class BottomTextWidget extends StatelessWidget {
         ),
         children: [
           TextSpan(
-            text: " Sign Up",
+            text: tapText,
             style: textTheme.bodyMedium?.copyWith(
               fontWeight: FontWeight.bold,
               fontSize: 14.sp,

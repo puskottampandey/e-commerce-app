@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/core/navigation/navigation_service.dart';
 import 'package:e_commerce_app/core/route/route.dart';
+import 'package:e_commerce_app/feature/authentication/screen/forgot_password_screen.dart';
 import 'package:e_commerce_app/feature/authentication/screen/login_screen.dart';
 import 'package:e_commerce_app/feature/authentication/screen/signup_screen.dart';
 import 'package:e_commerce_app/feature/startup/screen/onboarding_screen.dart';
@@ -22,6 +23,10 @@ class AppRouter {
       GoRoute(
         path: Routes.signupScreen,
         builder: (context, state) => SignupScreen(),
+      ),
+      GoRoute(
+        path: Routes.forgotScreen,
+        builder: (context, state) => ForgotPasswordScreen(),
       ),
     ],
   );
