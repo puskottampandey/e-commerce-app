@@ -1,17 +1,13 @@
-import 'package:e_commerce_app/core/constant/assets.dart';
 import 'package:e_commerce_app/core/theme/constant_color.dart';
 import 'package:e_commerce_app/core/utils/form_validators.dart';
 import 'package:e_commerce_app/core/widget/button/custom_rounded_button.dart';
 import 'package:e_commerce_app/core/widget/check_box.dart/check_box_login.dart';
-import 'package:e_commerce_app/core/widget/padding/app_padding.dart';
 import 'package:e_commerce_app/core/widget/text_field/custom_textform_field.dart';
-import 'package:e_commerce_app/feature/authentication/widget/auth_logo_widget.dart';
 import 'package:e_commerce_app/feature/authentication/widget/auth_screen_wrapper.dart';
 import 'package:e_commerce_app/feature/authentication/widget/bottom_text_widget.dart';
 import 'package:e_commerce_app/feature/authentication/widget/common_auth_widget.dart';
 import 'package:e_commerce_app/feature/authentication/widget/expanded_divider.dart';
 import 'package:e_commerce_app/feature/authentication/widget/platform_login_widget.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
