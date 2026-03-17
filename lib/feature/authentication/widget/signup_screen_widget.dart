@@ -69,7 +69,7 @@ class _SignupScreenWidgetState extends State<SignupScreenWidget> {
                 CustomTextformField(
                   title: "Full Name",
                   controller: _nameController,
-                  hintText: "Puskottam Pandey",
+                  hintText: "Enter a full name",
                   fieldKey: "name",
                   textInputAction: TextInputAction.next,
                   validator: (value) {
