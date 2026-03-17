@@ -1,5 +1,4 @@
 import 'package:e_commerce_app/core/theme/constant_color.dart';
-import 'package:e_commerce_app/core/widget/button/custom_rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -17,7 +16,7 @@ class CustomTextformField extends StatefulWidget {
   final Function(String)? onChanged;
   final Widget? suffixIcon;
   final bool isPassword;
-
+  final bool isneeded;
   const CustomTextformField({
     super.key,
     required this.title,
@@ -33,6 +32,7 @@ class CustomTextformField extends StatefulWidget {
     this.onChanged,
     this.suffixIcon,
     this.isPassword = false,
+    this.isneeded = true,
   });
 
   @override
@@ -48,11 +48,22 @@ class _CustomTextformFieldState extends State<CustomTextformField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          widget.title,
-          style: theme.textTheme.displaySmall?.copyWith(
-            fontSize: 14.sp,
-            color: AppColors.greySecondaryColor,
+        Text.rich(
+          TextSpan(
+            text: widget.title,
+            style: theme.textTheme.displaySmall?.copyWith(
+              fontSize: 14.sp,
+              color: AppColors.greySecondaryColor,
+            ),
+            children: [
+              TextSpan(
+                text: widget.isneeded ? " *" : "",
+                style: theme.textTheme.displaySmall?.copyWith(
+                  fontSize: 14.sp,
+                  color: AppColors.red,
+                ),
+              ),
+            ],
           ),
         ),
         SizedBox(height: 4.h),
@@ -73,6 +84,10 @@ class _CustomTextformFieldState extends State<CustomTextformField> {
             cursorErrorColor: AppColors.red,
             obscureText: widget.isPassword ? _obscureText : false,
             decoration: InputDecoration(
+              contentPadding: EdgeInsets.symmetric(
+                vertical: 8.h,
+                horizontal: 10.w,
+              ),
               suffixIcon: widget.isPassword
                   ? IconButton(
                       onPressed: () {
@@ -130,6 +145,7 @@ class _CustomTextformFieldState extends State<CustomTextformField> {
             validator: widget.validator,
           ),
         ),
+        SizedBox(height: 6.h),
       ],
     );
   }

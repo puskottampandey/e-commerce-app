@@ -1,16 +1,13 @@
-import 'package:e_commerce_app/core/constant/assets.dart';
 import 'package:e_commerce_app/core/theme/constant_color.dart';
 import 'package:e_commerce_app/core/utils/form_validators.dart';
 import 'package:e_commerce_app/core/widget/button/custom_rounded_button.dart';
 import 'package:e_commerce_app/core/widget/check_box.dart/check_box_login.dart';
-import 'package:e_commerce_app/core/widget/padding/app_padding.dart';
 import 'package:e_commerce_app/core/widget/text_field/custom_textform_field.dart';
-import 'package:e_commerce_app/feature/authentication/widget/auth_logo_widget.dart';
 import 'package:e_commerce_app/feature/authentication/widget/auth_screen_wrapper.dart';
 import 'package:e_commerce_app/feature/authentication/widget/bottom_text_widget.dart';
 import 'package:e_commerce_app/feature/authentication/widget/common_auth_widget.dart';
 import 'package:e_commerce_app/feature/authentication/widget/expanded_divider.dart';
-import 'package:flutter/gestures.dart';
+import 'package:e_commerce_app/feature/authentication/widget/platform_login_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -27,11 +24,6 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
   final TextEditingController _passWordController = TextEditingController();
   bool _isAlreadyValidate = false;
   bool _rememberMe = false;
-  @override
-  void dispose() {
-    _emailController.dispose();
-    super.dispose();
-  }
 
   void login() {
     setState(() {
@@ -49,6 +41,13 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
   }
 
   @override
+  void dispose() {
+    _emailController.dispose();
+    _passWordController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
@@ -60,7 +59,6 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
             title: "Welcome Back",
             subtitle: "Sign in to your account",
           ),
-
           Form(
             key: _formKey,
             child: Column(
@@ -82,7 +80,6 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                     );
                   },
                 ),
-                SizedBox(height: 10.h),
                 CustomTextformField(
                   suffixIcon: Icon(Icons.remove_red_eye),
                   fieldKey: "Password",
@@ -90,6 +87,7 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                   isPassword: true,
                   controller: _passWordController,
                   hintText: "Enter your password",
+                  textInputAction: TextInputAction.done,
                   onChanged: (p0) {
                     validateField();
                   },
@@ -103,7 +101,7 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
               ],
             ),
           ),
-          SizedBox(height: 10.h),
+
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -126,38 +124,10 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
             ],
           ),
           CustomRoundedButton(onTap: login, title: "Sign in"),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ExpandedDivider(),
-              sizebox(),
-              Text(
-                "Or continue with ",
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  color: AppColors.greyverylight,
-                ),
-              ),
-              sizebox(),
-              ExpandedDivider(),
-            ],
-          ),
+          ExpandedDivider(),
+          SizedBox(height: 10.h),
+          FamousPlatformLoginWidget(onTapApple: () {}, onTapGoogle: () {}),
           SizedBox(height: 20.h),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              AuthLogoWidget(
-                authLogo: Assets.googleLogo,
-                authName: "Google",
-                onTap: () {},
-              ),
-              AuthLogoWidget(
-                authLogo: Assets.appleLogo,
-                authName: "Apple",
-                onTap: () {},
-              ),
-            ],
-          ),
-          SizedBox(height: 30.h),
           BottomTextWidget(textTheme: textTheme),
         ],
       ),

@@ -24,19 +24,20 @@ class _CustomRoundedButtonState extends State<CustomRoundedButton> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return SizedBox(
-      height: 60.h,
+      // height: .h,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 0, vertical: 12.h),
+        padding: EdgeInsets.symmetric(horizontal: 0, vertical: 14.h),
         child: Material(
           elevation: 0,
           color: AppColors.primaryColor,
-          borderRadius: BorderRadius.circular(16.r),
+          borderRadius: BorderRadius.circular(32.r),
           child: InkWell(
+            borderRadius: BorderRadius.circular(32.r),
             onTap: widget.onTap,
             child: Container(
-              padding: EdgeInsets.symmetric(vertical: 2, horizontal: 20.h),
+              padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.h),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16.r),
+                borderRadius: BorderRadius.circular(32.r),
                 border: Border.all(color: theme.primaryColor),
               ),
               child: Center(
