@@ -4,4 +4,5 @@ class Routes {
   static const loginScreen = "/loginScreen";
   static const signupScreen = "/signUpScreen";
   static const forgotScreen = "/forgotScreen";
+  static const homeScreen = "/homeScreen";
 }
