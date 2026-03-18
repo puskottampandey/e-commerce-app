@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/core/route/route.dart';
 import 'package:e_commerce_app/core/utils/form_validators.dart';
 import 'package:e_commerce_app/core/widget/button/custom_rounded_button.dart';
 import 'package:e_commerce_app/core/widget/text_field/custom_textform_field.dart';
@@ -136,7 +137,11 @@ class _SignupScreenWidgetState extends State<SignupScreenWidget> {
           SizedBox(height: 8.h),
           FamousPlatformLoginWidget(onTapApple: () {}, onTapGoogle: () {}),
           SizedBox(height: 8.h),
-          BottomTextWidget(textTheme: textTheme, tapText: "Sign In"),
+          BottomTextWidget(
+            textTheme: textTheme,
+            tapText: "Sign In",
+            routeText: Routes.loginScreen,
+          ),
         ],
       ),
     );
