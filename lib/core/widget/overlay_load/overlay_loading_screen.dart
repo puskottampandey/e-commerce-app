@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/core/constant/assets.dart';
+import 'package:e_commerce_app/core/theme/constant_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -105,6 +106,8 @@ class AppLoader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final textTheme = theme.textTheme;
     return Container(
       height: MediaQuery.of(context).size.height,
       // ignore: deprecated_member_use
@@ -116,11 +119,11 @@ class AppLoader extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 CircularProgressIndicator(
-                  // color: theme.colorScheme.primary,
-                  // strokeWidth: 2,
-                  // backgroundColor: AppColors.greySecondaryColor,
-                  // strokeAlign: 10,
-                  // strokeCap: StrokeCap.round,
+                  color: theme.colorScheme.primary,
+                  strokeWidth: 2,
+                  backgroundColor: AppColors.greySecondaryColor,
+                  strokeAlign: 10,
+                  strokeCap: StrokeCap.round,
                 ),
               ],
             ),

@@ -7,10 +7,12 @@ import 'package:go_router/go_router.dart';
 
 class BottomTextWidget extends StatelessWidget {
   final String tapText;
+  final String routeText;
   const BottomTextWidget({
     super.key,
     required this.textTheme,
     required this.tapText,
+    required this.routeText,
   });
 
   final TextTheme textTheme;
@@ -35,7 +37,7 @@ class BottomTextWidget extends StatelessWidget {
             ),
             recognizer: TapGestureRecognizer()
               ..onTap = () {
-                context.push(Routes.signupScreen);
+                context.push(routeText);
               },
           ),
         ],

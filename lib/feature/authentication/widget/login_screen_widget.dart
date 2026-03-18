@@ -27,10 +27,12 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
   final TextEditingController _passWordController = TextEditingController();
   bool _isAlreadyValidate = false;
   bool _rememberMe = false;
+  bool _isloading = false;
 
   void login() {
     setState(() {
       _isAlreadyValidate = true;
+      _isloading = true;
     });
     if (_formKey.currentState!.validate()) {
       FocusScope.of(context).unfocus();
@@ -55,7 +57,7 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
     return OverlayLoadingScreen(
-      isLoading: true,
+      isLoading: _isloading,
       child: AuthScreenWrapper(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -139,7 +141,11 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
             SizedBox(height: 10.h),
             FamousPlatformLoginWidget(onTapApple: () {}, onTapGoogle: () {}),
             SizedBox(height: 20.h),
-            BottomTextWidget(textTheme: textTheme, tapText: " Sign Up"),
+            BottomTextWidget(
+              textTheme: textTheme,
+              tapText: " Sign Up",
+              routeText: Routes.signupScreen,
+            ),
           ],
         ),
       ),
