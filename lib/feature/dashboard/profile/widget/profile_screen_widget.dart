@@ -10,6 +10,6 @@ class ProfileScreenWidget extends StatefulWidget {
 class _ProfileScreenWidgetState extends State<ProfileScreenWidget> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text("cart")));
+    return Scaffold(body: Center(child: Text("Profile")));
   }
 }

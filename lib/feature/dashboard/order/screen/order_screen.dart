@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/feature/dashboard/order/widget/order_screen_widget.dart';
 import 'package:flutter/material.dart';
 
 class OrderScreen extends StatelessWidget {
@@ -5,6 +6,6 @@ class OrderScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return OrderScreenWidget();
   }
 }

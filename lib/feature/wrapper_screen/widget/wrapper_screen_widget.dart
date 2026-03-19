@@ -1,6 +1,9 @@
+import 'package:e_commerce_app/core/constant/assets.dart';
 import 'package:e_commerce_app/core/theme/constant_color.dart';
-import 'package:e_commerce_app/feature/home/model/bottom_navbar_model.dart';
+import 'package:e_commerce_app/feature/wrapper_screen/model/bottom_navbar_model.dart';
+import 'package:e_commerce_app/feature/wrapper_screen/widget/floating_action_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class WrapperScreenWidget extends StatefulWidget {
   const WrapperScreenWidget({super.key});
@@ -15,11 +18,10 @@ class _HomesScreenWidgetState extends State<WrapperScreenWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.scaffoldBackgroundColor,
-      appBar: AppBar(backgroundColor: AppColors.scaffoldBackgroundColor),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: AppColors.primaryColor,
         unselectedItemColor: AppColors.greySecondaryColor,
-        backgroundColor: AppColors.scaffoldBackgroundColor,
+        backgroundColor: AppColors.white,
 
         currentIndex: currentIndex,
         onTap: (value) {
@@ -34,11 +36,7 @@ class _HomesScreenWidgetState extends State<WrapperScreenWidget> {
           );
         }).toList(),
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: AppColors.scaffoldBackgroundColor,
-        child: Icon(Icons.chat_rounded),
-        onPressed: () {},
-      ),
+      floatingActionButton: FloatingActionWidget(),
       body: bottomNavItems[currentIndex].screen,
     );
   }

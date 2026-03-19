@@ -10,6 +10,6 @@ class CategoriesScreenWidget extends StatefulWidget {
 class _CategoriesScreenWidgetState extends State<CategoriesScreenWidget> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text("cart")));
+    return Scaffold(body: Center(child: Text("Categories")));
   }
 }

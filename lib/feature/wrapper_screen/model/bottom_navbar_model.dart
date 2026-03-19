@@ -1,10 +1,9 @@
-import 'package:e_commerce_app/feature/home/screen/cart_screen.dart';
-import 'package:e_commerce_app/feature/home/screen/categories_screen.dart';
-import 'package:e_commerce_app/feature/home/screen/home_screen.dart';
-import 'package:e_commerce_app/feature/home/screen/order_screen.dart';
-import 'package:e_commerce_app/feature/home/screen/profile_screen.dart';
-import 'package:e_commerce_app/feature/home/screen/wrapper_screen.dart';
-import 'package:e_commerce_app/feature/home/widget/cart_screen_widget.dart/cart_screen_widget.dart';
+import 'package:e_commerce_app/feature/dashboard/cart/screen/cart_screen.dart';
+import 'package:e_commerce_app/feature/dashboard/categories/screen/categories_screen.dart';
+import 'package:e_commerce_app/feature/dashboard/home/screen/home_screen.dart';
+import 'package:e_commerce_app/feature/dashboard/order/screen/order_screen.dart';
+import 'package:e_commerce_app/feature/dashboard/profile/screen/profile_screen.dart';
+
 import 'package:flutter/material.dart';
 
 class BottomNavItemModel {

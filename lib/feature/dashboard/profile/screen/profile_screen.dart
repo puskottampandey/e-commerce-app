@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/feature/dashboard/profile/widget/profile_screen_widget.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -5,6 +6,6 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return ProfileScreenWidget();
   }
 }

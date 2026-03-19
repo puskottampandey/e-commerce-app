@@ -5,6 +5,6 @@ class OrderScreenWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Center(child: Text("cart")));
+    return Scaffold(body: Center(child: Text("Order")));
   }
 }
