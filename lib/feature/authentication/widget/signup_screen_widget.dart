@@ -9,6 +9,7 @@ import 'package:e_commerce_app/feature/authentication/widget/expanded_divider.da
 import 'package:e_commerce_app/feature/authentication/widget/platform_login_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class SignupScreenWidget extends StatefulWidget {
   const SignupScreenWidget({super.key});
@@ -27,6 +28,7 @@ class _SignupScreenWidgetState extends State<SignupScreenWidget> {
   bool _isAlreadyValidate = false;
 
   void signUp() {
+    context.go(Routes.homeScreen);
     setState(() {
       _isAlreadyValidate = true;
     });
