@@ -17,12 +17,12 @@ class _HomesScreenWidgetState extends State<WrapperScreenWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.scaffoldBackgroundColor,
       bottomNavigationBar: BottomNavigationBar(
+        elevation: 10,
         selectedItemColor: AppColors.primaryColor,
         unselectedItemColor: AppColors.greySecondaryColor,
         backgroundColor: AppColors.white,
-
+        type: BottomNavigationBarType.fixed,
         currentIndex: currentIndex,
         onTap: (value) {
           setState(() {
@@ -31,6 +31,7 @@ class _HomesScreenWidgetState extends State<WrapperScreenWidget> {
         },
         items: bottomNavItems.map((item) {
           return BottomNavigationBarItem(
+            backgroundColor: AppColors.red,
             icon: Icon(item.icon),
             label: item.label,
           );
