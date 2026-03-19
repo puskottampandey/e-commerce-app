@@ -1,7 +1,10 @@
+import 'package:e_commerce_app/core/theme/constant_color.dart';
+import 'package:e_commerce_app/core/widget/padding/app_padding.dart';
 import 'package:flutter/material.dart';
 
 class DashboardScaffoldWrapper extends StatefulWidget {
-  const DashboardScaffoldWrapper({super.key});
+  final Widget body;
+  const DashboardScaffoldWrapper({super.key, required this.body});
 
   @override
   State<DashboardScaffoldWrapper> createState() =>
@@ -11,6 +14,9 @@ class DashboardScaffoldWrapper extends StatefulWidget {
 class _DashboardScaffoldWrapperState extends State<DashboardScaffoldWrapper> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      backgroundColor: AppColors.scaffoldBackgroundColor,
+      body: AppPadding(child: SafeArea(child: widget.body)),
+    );
   }
 }
