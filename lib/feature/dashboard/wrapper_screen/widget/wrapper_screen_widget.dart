@@ -53,7 +53,6 @@ class _HomesScreenWidgetState extends State<WrapperScreenWidget> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
-        elevation: 10,
         selectedItemColor: AppColors.primaryColor,
         unselectedItemColor: AppColors.greySecondaryColor,
         backgroundColor: AppColors.white,

@@ -5,6 +5,7 @@ import 'package:e_commerce_app/core/widget/text_field/custom_search_field.dart';
 import 'package:e_commerce_app/feature/dashboard/wrapper_screen/widget/dashboard_scaffold_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeScreenWidget extends StatefulWidget {
   const HomeScreenWidget({super.key});
@@ -22,11 +23,14 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
       body: Column(
         children: [
           CustomSearchField(
+            readonly: true,
             controller: TextEditingController(),
             prefixIcon: Icon(Icons.search, color: AppColors.greySecondaryColor),
             hintText: "Search any Product ....",
             fieldKey: "Search",
-            onTap: () {},
+            onTap: () {
+              context.push(Routes.searchScreen);
+            },
           ),
         ],
       ),

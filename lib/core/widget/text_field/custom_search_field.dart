@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomSearchField extends StatefulWidget {
   final String fieldKey;
-  final TextEditingController controller;
+  final TextEditingController? controller;
   final TextInputType textInputType;
   final String hintText;
   final String? Function(String?)? validator;
@@ -18,9 +18,11 @@ class CustomSearchField extends StatefulWidget {
   final bool isneeded;
   final Widget? prefixIcon;
   final Function()? onTap;
+  final bool isenable;
+  final bool readonly;
   const CustomSearchField({
     super.key,
-    required this.controller,
+    this.controller,
     this.textInputType = TextInputType.text,
     required this.hintText,
     this.validator,
@@ -34,7 +36,9 @@ class CustomSearchField extends StatefulWidget {
     this.isPassword = false,
     this.isneeded = true,
     this.prefixIcon,
-    required this.onTap,
+    this.onTap,
+    this.isenable = true,
+    this.readonly = false,
   });
 
   @override
@@ -53,8 +57,9 @@ class _CustomSearchFieldState extends State<CustomSearchField> {
           elevation: 0.0,
           color: Colors.transparent,
           child: TextFormField(
-            enabled: false,
-            onTap: () {},
+            readOnly: widget.readonly,
+            enabled: widget.isenable,
+            onTap: widget.onTap,
             forceErrorText: widget.errorText,
             key: Key(widget.fieldKey),
             controller: widget.controller,
@@ -92,9 +97,7 @@ class _CustomSearchFieldState extends State<CustomSearchField> {
                 borderRadius: BorderRadius.circular(16.r),
               ),
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: AppColors.textformfieldBorderColor,
-                ),
+                borderSide: BorderSide.none,
                 borderRadius: BorderRadius.circular(16.r),
               ),
               focusedErrorBorder: OutlineInputBorder(
