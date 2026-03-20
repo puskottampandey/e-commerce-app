@@ -9,7 +9,7 @@ class AppPadding extends StatelessWidget {
     super.key,
     required this.child,
     this.horizontalPadding = 16,
-    this.verticalPadding = 10,
+    this.verticalPadding = 4,
   });
 
   @override

@@ -18,4 +18,11 @@ class Assets {
   static const googleLogo = "$_basePath/google$_png";
   static const appleLogo = "$_basePath/apple_logo$_png";
   static const chatIcon = "$_basePath/messenger$_png";
+
+  static const headPhone = '$_basePath/headphones$_png';
+  static const charger = '$_basePath/charget$_png';
+  static const gaming = '$_basePath/gaming$_png';
+  static const laptop = '$_basePath/laptop$_png';
+  static const smartphone = '$_basePath/smartphone$_png';
+  static const watch = '$_basePath/watch$_png';
 }
