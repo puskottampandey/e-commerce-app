@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class DashboardScaffoldWrapper extends StatefulWidget {
   final Widget body;
+
   const DashboardScaffoldWrapper({super.key, required this.body});
 
   @override
@@ -16,7 +17,7 @@ class _DashboardScaffoldWrapperState extends State<DashboardScaffoldWrapper> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.scaffoldBackgroundColor,
-      body: AppPadding(child: SafeArea(child: widget.body)),
+      body: AppPadding(child: widget.body),
     );
   }
 }

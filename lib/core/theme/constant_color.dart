@@ -16,3 +16,4 @@ class AppColors {
   static const textformfieldBorderColor = Color(0xffE2E8F0);
   static const authTextColor = Color(0xff334155);
 }
+// F6F9FE
