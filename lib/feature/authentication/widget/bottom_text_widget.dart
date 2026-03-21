@@ -1,4 +1,3 @@
-import 'package:e_commerce_app/core/route/route.dart';
 import 'package:e_commerce_app/core/theme/constant_color.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';

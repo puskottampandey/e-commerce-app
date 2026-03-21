@@ -1,19 +1,18 @@
 import 'package:e_commerce_app/core/widget/scaffold_wrapper/Resuable_scaffold_wrapper.dart';
 import 'package:flutter/material.dart';
 
-class ChatScreenWidget extends StatefulWidget {
-  const ChatScreenWidget({super.key});
+class NotifcationWidget extends StatefulWidget {
+  const NotifcationWidget({super.key});
 
   @override
-  State<ChatScreenWidget> createState() => _ChatScreenWidgetState();
+  State<NotifcationWidget> createState() => _NotifcationWidgetState();
 }
 
-class _ChatScreenWidgetState extends State<ChatScreenWidget> {
+class _NotifcationWidgetState extends State<NotifcationWidget> {
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return ResuableScaffoldWrapper(
-      title: "Chat",
+      title: "Notification",
       child: Column(children: []),
     );
   }
