@@ -1,11 +1,9 @@
-import 'dart:ffi';
-
-import 'package:e_commerce_app/core/constant/assets.dart';
 import 'package:e_commerce_app/core/route/route.dart';
 import 'package:e_commerce_app/core/theme/constant_color.dart';
 import 'package:e_commerce_app/core/widget/text_field/custom_search_field.dart';
 import 'package:e_commerce_app/feature/dashboard/home/widget/banner_widget.dart';
 import 'package:e_commerce_app/feature/dashboard/home/widget/categories_list_widget.dart';
+import 'package:e_commerce_app/feature/dashboard/home/widget/flash_sale_time_widget.dart';
 import 'package:e_commerce_app/feature/dashboard/home/widget/row_text_widget.dart';
 import 'package:e_commerce_app/feature/dashboard/wrapper_screen/widget/dashboard_scaffold_wrapper.dart';
 import 'package:flutter/material.dart';
@@ -51,6 +49,7 @@ class _HomeScreenWidgetState extends State<HomeScreenWidget> {
             rightText: "See all",
             leftText: "Flash Sale",
           ),
+          FlashSaleContainerTimer(),
         ],
       ),
     );

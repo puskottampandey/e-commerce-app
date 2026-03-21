@@ -8,11 +8,11 @@ class BannerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Container(
       width: double.infinity,
-      height: 140.h,
-      margin: EdgeInsets.symmetric(vertical: 10.h),
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+      height: 120.h,
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24.r),
         gradient: LinearGradient(
@@ -26,7 +26,7 @@ class BannerWidget extends StatelessWidget {
         ),
         boxShadow: [
           BoxShadow(
-            color: Color(0xff450693).withOpacity(0.35),
+            color: Color(0xff450693).withValues(alpha: 0.35),
             blurRadius: 18,
             offset: Offset(0, 8),
           ),
@@ -40,43 +40,43 @@ class BannerWidget extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 10.w,
+                    vertical: 8.h,
+                  ),
                   decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.2),
+                    color: Colors.white.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(20.r),
                   ),
                   child: Text(
                     "LIMITED OFFER",
-                    style: TextStyle(
-                      color: AppColors.white,
+                    style: theme.textTheme.bodyMedium?.copyWith(
                       fontSize: 12.sp,
+                      color: AppColors.white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
-                SizedBox(height: 12),
+                SizedBox(height: 12.h),
                 Text(
                   "Up to 60% OFF",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 24,
+                  style: theme.textTheme.bodyMedium?.copyWith(
+                    color: AppColors.white,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 6),
+                SizedBox(height: 6.h),
                 Text(
                   "On Premium Gadgets",
-                  style: TextStyle(
-                    color: Colors.white.withOpacity(0.9),
-                    fontSize: 14,
+                  style: theme.textTheme.labelLarge?.copyWith(
+                    fontSize: 12.sp,
+                    color: Colors.white.withValues(alpha: 0.9),
                   ),
                 ),
               ],
             ),
           ),
-
-          /// RIGHT IMAGE
-          Image.asset(Assets.headPhone, height: 130),
+          Image.asset(Assets.headPhone, height: 130.h),
         ],
       ),
     );

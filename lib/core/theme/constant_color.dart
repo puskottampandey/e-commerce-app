@@ -16,4 +16,9 @@ class AppColors {
   static const textfilledColor = Color(0xffF8FAFC);
   static const textformfieldBorderColor = Color(0xffE2E8F0);
   static const authTextColor = Color(0xff334155);
+
+  // fash sale gradient color
+  static const flashSaleGradientColor = LinearGradient(
+    colors: [Color(0xff450693), Color(0xff6a11cb)],
+  );
 }

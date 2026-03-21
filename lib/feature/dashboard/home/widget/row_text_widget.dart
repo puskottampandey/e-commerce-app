@@ -32,7 +32,7 @@ class RowTextWidget extends StatelessWidget {
               fontSize: 20.sp,
             ),
           ),
-          istimer ? Text(DateTime.now().toString()) : SizedBox(),
+
           InkWell(
             onTap: ontap,
             child: Row(
