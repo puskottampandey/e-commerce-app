@@ -6,14 +6,13 @@ class RowTextWidget extends StatelessWidget {
   final String rightText;
   final String leftText;
   final Function()? ontap;
-  final bool istimer;
+
   const RowTextWidget({
     super.key,
     required this.theme,
     required this.rightText,
     required this.leftText,
     this.ontap,
-    this.istimer = false,
   });
 
   final ThemeData theme;
@@ -21,7 +20,7 @@ class RowTextWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: ontap,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

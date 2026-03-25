@@ -10,6 +10,7 @@ class AppColors {
   static const greySecondaryColor = Color(0xFF64748B);
   static const greyverylight = Color(0xFF94A3B8);
   static const greybackgroundColor = Color(0xFFe9ecef);
+  static const lightgreybackgroundColor = Color(0xffF1F3F5);
   static const scaffoldBackgroundColor = Color(0xFFF6F9FE);
   static const red = Color(0xffFF0000);
   static const trasparentColor = Colors.transparent;
@@ -21,4 +22,7 @@ class AppColors {
   static const flashSaleGradientColor = LinearGradient(
     colors: [Color(0xff450693), Color(0xff6a11cb)],
   );
+
+  static const goldenColor = Color(0xffFFBF00);
 }
+  // static const greybackgroundColor = Color(0xFFe9ecef);
