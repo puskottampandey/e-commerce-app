@@ -23,75 +23,109 @@ class _FlashSaleListWidgetState extends State<FlashSaleListWidget> {
               Container(
                 width: 160.w,
                 margin: EdgeInsets.fromLTRB(0.w, 10.h, 10.w, 10.h),
-                padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 10.w),
+                padding: EdgeInsets.symmetric(vertical: 4.h, horizontal: 4.w),
                 decoration: BoxDecoration(
                   color: AppColors.white,
                   borderRadius: BorderRadius.circular(16.r),
                 ),
-                child: Container(
-                  padding: EdgeInsets.symmetric(
-                    vertical: 10.h,
-                    horizontal: 10.w,
-                  ),
-                  decoration: BoxDecoration(
-                    color: AppColors.greybackgroundColor,
-                    borderRadius: BorderRadius.circular(16.r),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Center(
-                        child: Image.asset(Assets.headPhone, height: 60.h),
-                      ),
-                      SizedBox(height: 6.h),
-                      Text(
-                        "Sony WH-1000XM5 Wireless Headphones",
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        style: theme.textTheme.bodyMedium?.copyWith(
-                          fontSize: 12.sp,
-                          color: AppColors.black,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(height: 6.h),
-                      Row(
-                        children: [
-                          Icon(
-                            Icons.star_border,
-                            size: 14.sp,
-                            fontWeight: FontWeight.bold,
-                            color: AppColors.goldenColor,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Stack(
+                      alignment: AlignmentGeometry.topRight,
+                      children: [
+                        Container(
+                          padding: EdgeInsets.symmetric(
+                            vertical: 10.h,
+                            horizontal: 10.w,
                           ),
-                          Text('4.8'),
-                        ],
+                          decoration: BoxDecoration(
+                            color: AppColors.lightgreybackgroundColor,
+                            borderRadius: BorderRadius.circular(12.r),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Center(
+                                child: Image.asset(
+                                  Assets.headPhone,
+                                  height: 70.h,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Positioned(
+                          right: 4.w,
+                          top: 4.h,
+                          child: Container(
+                            padding: EdgeInsets.all(4),
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: AppColors.white,
+                            ),
+                            child: Icon(
+                              Icons.favorite_border,
+                              color: AppColors.greySecondaryColor,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 6.h),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: 6.w,
+                        vertical: 4.h,
                       ),
-                      Row(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Rs.5000",
-                            style: theme.textTheme.bodySmall?.copyWith(
+                            "Sony WH-1000XM5 Wireless Headphones",
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                            style: theme.textTheme.bodyMedium?.copyWith(
                               fontSize: 14.sp,
                               color: AppColors.black,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          SizedBox(height: 4.h),
+                          Text(
+                            "Rs. 5000",
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              fontSize: 16.sp,
+                              color: AppColors.primaryColor,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-
-                          SizedBox(width: 6.h),
-                          Text(
-                            "Rs.8000",
-                            style: theme.textTheme.bodySmall?.copyWith(
-                              decoration: TextDecoration.lineThrough,
-                              decorationColor: AppColors.greySecondaryColor,
-                              fontSize: 12.sp,
-                              color: AppColors.greySecondaryColor,
-                              fontWeight: FontWeight.bold,
-                            ),
+                          Row(
+                            children: [
+                              Text(
+                                "Rs. 8000",
+                                style: theme.textTheme.bodySmall?.copyWith(
+                                  decoration: TextDecoration.lineThrough,
+                                  decorationColor: AppColors.greySecondaryColor,
+                                  fontSize: 12.sp,
+                                  color: AppColors.greySecondaryColor,
+                                ),
+                              ),
+                              SizedBox(width: 6.w),
+                              Text(
+                                "40%Off",
+                                style: theme.textTheme.bodySmall?.copyWith(
+                                  fontSize: 10.sp,
+                                  color: AppColors.red,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ],
