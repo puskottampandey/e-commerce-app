@@ -45,7 +45,7 @@ class _FlashSaleContainerTimerState extends State<FlashSaleContainerTimer> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
       decoration: BoxDecoration(
         gradient: AppColors.flashSaleGradientColor,
         borderRadius: BorderRadius.circular(16.r),

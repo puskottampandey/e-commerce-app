@@ -21,4 +21,6 @@ class AppColors {
   static const flashSaleGradientColor = LinearGradient(
     colors: [Color(0xff450693), Color(0xff6a11cb)],
   );
+
+  static const goldenColor = Color(0xffFFBF00);
 }
