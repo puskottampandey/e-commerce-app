@@ -16,7 +16,7 @@ class AuthRepositoryImpl implements AuthRepository {
     try {
       return await remoteDataSource.signUp(email, password, fullName);
     } catch (e) {
-      throw Exception(e.toString());
+      rethrow;
     }
   }
 }

@@ -11,7 +11,7 @@ class AuthBloc extends Bloc<AuthEvent, BaseState> {
       emit(LoadingState());
 
       try {
-        final user = signUpUseCase(
+        final user = await signUpUseCase(
           email: event.email,
           password: event.password,
           fullName: event.fullName,
