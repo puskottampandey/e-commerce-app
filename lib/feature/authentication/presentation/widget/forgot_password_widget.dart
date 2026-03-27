@@ -1,8 +1,8 @@
 import 'package:e_commerce_app/core/utils/form_validators.dart';
 import 'package:e_commerce_app/core/widget/button/custom_rounded_button.dart';
 import 'package:e_commerce_app/core/widget/text_field/custom_textform_field.dart';
-import 'package:e_commerce_app/feature/authentication/widget/auth_screen_wrapper.dart';
-import 'package:e_commerce_app/feature/authentication/widget/common_auth_widget.dart';
+import 'package:e_commerce_app/feature/authentication/presentation/widget/auth_screen_wrapper.dart';
+import 'package:e_commerce_app/feature/authentication/presentation/widget/common_auth_widget.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPasswordWidget extends StatefulWidget {

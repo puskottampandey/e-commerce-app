@@ -1,5 +1,5 @@
 import 'package:e_commerce_app/core/constant/assets.dart';
-import 'package:e_commerce_app/feature/authentication/widget/auth_logo_widget.dart';
+import 'package:e_commerce_app/feature/authentication/presentation/widget/auth_logo_widget.dart';
 import 'package:flutter/material.dart';
 
 class FamousPlatformLoginWidget extends StatelessWidget {
