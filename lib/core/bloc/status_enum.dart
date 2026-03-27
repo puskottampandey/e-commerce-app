@@ -1,11 +1,13 @@
+import 'package:equatable/equatable.dart';
+
 enum Status { initial, loading, success, error }
 
-class BaseStateEnum<T> {
+class BaseStateEnum<T> extends Equatable {
   final Status status;
   final T? data;
   final String? message;
 
-  BaseStateEnum({this.status = Status.initial, this.data, this.message});
+  const BaseStateEnum({this.status = Status.initial, this.data, this.message});
 
   BaseStateEnum<T> copyWith({Status? status, T? data, String? message}) {
     return BaseStateEnum<T>(
@@ -14,4 +16,7 @@ class BaseStateEnum<T> {
       message: message ?? this.message,
     );
   }
+
+  @override
+  List<Object?> get props => [status, data, message];
 }
