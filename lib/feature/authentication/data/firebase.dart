@@ -26,9 +26,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
       final user = credential.user!;
       final userModel = UserModel.fromFirebase(user, fullName);
-
       await firestore.collection('users').doc(user.uid).set(userModel.toJson());
-
       return userModel;
     } on FirebaseAuthException catch (e) {
       throw Exception(e.message);

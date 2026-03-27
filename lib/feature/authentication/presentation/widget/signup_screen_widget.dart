@@ -68,13 +68,12 @@ class _SignupScreenWidgetState extends State<SignupScreenWidget> {
     final textTheme = theme.textTheme;
     return BlocConsumer<AuthBloc, BaseState>(
       listener: (context, state) {
-        if (state is InitialState) {
+        if (state is SuccessState) {
           ScaffoldMessenger.of(
             context,
           ).showSnackBar(SnackBar(content: Text("Signup Success")));
           context.go(Routes.loginScreen);
         } else if (state is ErrorState) {
-          print(state.data);
           ScaffoldMessenger.of(
             context,
           ).showSnackBar(SnackBar(content: Text(state.data)));

@@ -16,7 +16,6 @@ class AuthBloc extends Bloc<AuthEvent, BaseState> {
           password: event.password,
           fullName: event.fullName,
         );
-
         emit(SuccessState(user));
       } catch (e) {
         emit(ErrorState(e.toString()));
