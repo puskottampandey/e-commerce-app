@@ -10,6 +10,13 @@ class UserModel extends UserEntity {
   factory UserModel.fromFirebase(user, String fullName) {
     return UserModel(uid: user.uid, email: user.email, fullName: fullName);
   }
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    return UserModel(
+      uid: json['uid'],
+      email: json['email'],
+      fullName: json['fullName'],
+    );
+  }
 
   Map<String, dynamic> toJson() {
     return {

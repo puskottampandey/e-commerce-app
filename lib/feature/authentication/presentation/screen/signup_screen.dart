@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/feature/authentication/presentation/bloc/signup_bloc.dart';
+import 'package:e_commerce_app/feature/authentication/presentation/bloc/auth_bloc.dart';
 import 'package:e_commerce_app/feature/authentication/presentation/widget/signup_screen_widget.dart';
 import 'package:e_commerce_app/injection_container.dart';
 import 'package:flutter/material.dart';
