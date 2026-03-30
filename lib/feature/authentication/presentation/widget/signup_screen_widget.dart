@@ -159,7 +159,11 @@ class _SignupScreenWidgetState extends State<SignupScreenWidget> {
                     ],
                   ),
                 ),
-                CustomRoundedButton(onTap: signUp, title: "Sign Up"),
+                CustomRoundedButton(
+                  isLoading: state is LoadingState,
+                  onTap: signUp,
+                  title: "Sign Up",
+                ),
                 ExpandedDivider(),
                 SizedBox(height: 8.h),
                 FamousPlatformLoginWidget(
