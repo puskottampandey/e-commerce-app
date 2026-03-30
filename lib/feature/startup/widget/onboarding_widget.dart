@@ -3,6 +3,7 @@ import 'package:e_commerce_app/core/theme/constant_color.dart';
 import 'package:e_commerce_app/core/widget/button/custom_rounded_button.dart';
 import 'package:e_commerce_app/core/widget/padding/app_padding.dart';
 import 'package:e_commerce_app/feature/startup/bloc/onboarding_screen_model.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -20,6 +21,19 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
   PageController controller = PageController(initialPage: 0);
   int pageChangeIndex = 0;
   double animationProgress = 1;
+
+  @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final user = FirebaseAuth.instance.currentUser;
+      if (user != null) {
+        context.go(Routes.homeScreen);
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final progress = intialStep / finalStep;

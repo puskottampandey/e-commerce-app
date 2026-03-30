@@ -4,6 +4,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class AuthRemoteDataSource {
   Future<UserModel> signUp(String email, String password, String fullName);
+  Future<UserModel> signIn(String email, String password);
 }
 
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
@@ -28,6 +29,21 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       final userModel = UserModel.fromFirebase(user, fullName);
       await firestore.collection('users').doc(user.uid).set(userModel.toJson());
       return userModel;
+    } on FirebaseAuthException catch (e) {
+      throw Exception(e.message);
+    }
+  }
+
+  @override
+  Future<UserModel> signIn(String email, String password) async {
+    try {
+      final credential = await auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      final user = credential.user!;
+      final doc = await firestore.collection("users").doc(user.uid).get();
+      return UserModel.fromJson(doc.data()!);
     } on FirebaseAuthException catch (e) {
       throw Exception(e.message);
     }
