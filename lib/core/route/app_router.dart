@@ -1,8 +1,8 @@
 import 'package:e_commerce_app/core/navigation/navigation_service.dart';
 import 'package:e_commerce_app/core/route/route.dart';
-import 'package:e_commerce_app/feature/authentication/screen/forgot_password_screen.dart';
-import 'package:e_commerce_app/feature/authentication/screen/login_screen.dart';
-import 'package:e_commerce_app/feature/authentication/screen/signup_screen.dart';
+import 'package:e_commerce_app/feature/authentication/presentation/screen/forgot_password_screen.dart';
+import 'package:e_commerce_app/feature/authentication/presentation/screen/login_screen.dart';
+import 'package:e_commerce_app/feature/authentication/presentation/screen/signup_screen.dart';
 import 'package:e_commerce_app/feature/chat/screen/chat_screen.dart';
 import 'package:e_commerce_app/feature/dashboard/wrapper_screen/screen/wrapper_screen.dart';
 import 'package:e_commerce_app/feature/notification/screen/notification_screen.dart';

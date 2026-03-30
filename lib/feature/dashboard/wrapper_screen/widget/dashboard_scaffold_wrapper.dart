@@ -17,6 +17,7 @@ class _DashboardScaffoldWrapperState extends State<DashboardScaffoldWrapper> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.scaffoldBackgroundColor,
+
       body: AppPadding(child: widget.body),
     );
   }
