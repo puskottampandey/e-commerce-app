@@ -20,10 +20,7 @@ class OnboardingWidget extends StatefulWidget {
 }
 
 class _OnboardingWidgetState extends State<OnboardingWidget> {
-  double intialStep = 1;
-  final double finalStep = 3;
   PageController controller = PageController(initialPage: 0);
-  int pageChangeIndex = 0;
   double animationProgress = 1;
 
   @override
@@ -40,7 +37,6 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
 
   @override
   Widget build(BuildContext context) {
-    final progress = intialStep / finalStep;
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
     return BlocBuilder<OnboardingBloc, OnboardingState>(
@@ -77,10 +73,6 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                         context.read<OnboardingBloc>().add(
                           OnboardingEvent(pageChangedIndex: index),
                         );
-                        // setState(() {
-                        //   pageChangeIndex = index;
-                        //   intialStep = pageChangeIndex + 1;
-                        // });
                       },
                       itemBuilder: (context, index) {
                         final data = onBoardingScreen[index];
@@ -118,7 +110,10 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                             height: 42,
                             width: 42,
                             child: TweenAnimationBuilder(
-                              tween: Tween<double>(begin: 0, end: progress),
+                              tween: Tween<double>(
+                                begin: 0,
+                                end: state.progress,
+                              ),
                               duration: const Duration(milliseconds: 500),
                               builder: (context, value, child) =>
                                   CircularProgressIndicator(
@@ -132,14 +127,14 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
                           ),
                           Text.rich(
                             TextSpan(
-                              text: intialStep.toInt().toString(),
+                              text: state.currentStep.toString(),
                               style: textTheme.labelLarge?.copyWith(
                                 color: AppColors.primaryColor,
                                 fontSize: 16.sp,
                               ),
                               children: [
                                 TextSpan(
-                                  text: "/${finalStep.toInt().toString()}",
+                                  text: "/${state.totalSteps}",
                                   style: textTheme.labelLarge?.copyWith(
                                     fontWeight: FontWeight.bold,
                                     fontSize: 12.sp,
