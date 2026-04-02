@@ -1,5 +1,4 @@
 import 'package:e_commerce_app/feature/authentication/domain/entities/user_entities.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class AuthRepository {
   Future<UserEntity> signUp({
