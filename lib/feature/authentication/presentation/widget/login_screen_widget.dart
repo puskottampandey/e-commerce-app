@@ -1,6 +1,7 @@
 import 'package:e_commerce_app/core/bloc/common_state_bloc.dart';
 import 'package:e_commerce_app/core/route/route.dart';
 import 'package:e_commerce_app/core/theme/constant_color.dart';
+import 'package:e_commerce_app/core/utils/custom_toast.dart';
 import 'package:e_commerce_app/core/utils/form_validators.dart';
 import 'package:e_commerce_app/core/widget/button/custom_rounded_button.dart';
 import 'package:e_commerce_app/core/widget/check_box.dart/check_box_login.dart';
@@ -64,13 +65,10 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
     return BlocConsumer<AuthBloc, BaseState>(
       listener: (context, state) {
         if (state is SuccessState) {
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text("SignIn Success")));
+          CustomToast.successToast(msg: "Login successful");
+          context.go(Routes.homeScreen);
         } else if (state is ErrorState) {
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text(state.data)));
+          CustomToast.errorToast(msg: state.data);
         }
       },
       builder: (context, state) {
@@ -162,7 +160,9 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                 ExpandedDivider(),
                 SizedBox(height: 10.h),
                 FamousPlatformLoginWidget(
-                  onTapApple: () {},
+                  onTapApple: () {
+                    CustomToast.successToast(msg: "Login Successfully ");
+                  },
                   onTapGoogle: () {},
                 ),
                 SizedBox(height: 20.h),

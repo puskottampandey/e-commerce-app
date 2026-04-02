@@ -24,5 +24,7 @@ class AppColors {
   );
 
   static const goldenColor = Color(0xffFFBF00);
+  static const greenColor = Color(0xFF4CAF50);
+  static const secondaryRed = Color(0xFFF44336);
 }
   // static const greybackgroundColor = Color(0xFFe9ecef);

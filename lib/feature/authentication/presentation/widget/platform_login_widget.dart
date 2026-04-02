@@ -25,7 +25,7 @@ class FamousPlatformLoginWidget extends StatelessWidget {
         AuthLogoWidget(
           authLogo: Assets.appleLogo,
           authName: "Apple",
-          onTap: onTapGoogle,
+          onTap: onTapApple,
         ),
       ],
     );

@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/core/bloc/common_state_bloc.dart';
 import 'package:e_commerce_app/core/route/route.dart';
+import 'package:e_commerce_app/core/utils/custom_toast.dart';
 import 'package:e_commerce_app/core/utils/form_validators.dart';
 import 'package:e_commerce_app/core/widget/button/custom_rounded_button.dart';
 import 'package:e_commerce_app/core/widget/overlay_load/overlay_loading_screen.dart';
@@ -69,14 +70,10 @@ class _SignupScreenWidgetState extends State<SignupScreenWidget> {
     return BlocConsumer<AuthBloc, BaseState>(
       listener: (context, state) {
         if (state is SuccessState) {
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text("Signup Success")));
+          CustomToast.successToast(msg: "Account created successfully");
           context.go(Routes.loginScreen);
         } else if (state is ErrorState) {
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text(state.data)));
+          CustomToast.errorToast(msg: state.data);
         }
       },
       builder: (context, state) {
