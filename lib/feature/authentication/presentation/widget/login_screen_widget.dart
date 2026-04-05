@@ -59,6 +59,7 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
   @override
   void initState() {
     super.initState();
+
     if (hive.checkContainKey(email)) {
       _emailController.text = hive.getData(email);
     }
@@ -154,7 +155,7 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         CheckBoxLogin(
-                          initialValue: hive.checkContainKey(checkRemeber),
+                          initialValue: hive.getData(checkRemeber),
                           onChange: (value) {
                             context.read<CheckBoxBloc>().add(
                               CheckBoxEvent(isRemember: value),

@@ -4,11 +4,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class CheckBoxBloc extends Bloc<CheckBoxEvent, bool> {
   CheckBoxBloc() : super(false) {
     on<CheckBoxEvent>((event, emit) {
-      if (event.isRemember) {
-        emit(event.isRemember);
-      } else {
-        emit(!event.isRemember);
-      }
+      emit(event.isRemember);
+      // if (event.isRemember) {
+      //   emit(event.isRemember);
+      // } else {
+      //   emit(!event.isRemember);
+      // }
     });
   }
 }

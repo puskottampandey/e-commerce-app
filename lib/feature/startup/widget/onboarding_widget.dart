@@ -6,7 +6,6 @@ import 'package:e_commerce_app/feature/startup/bloc/onboarding_bloc.dart';
 import 'package:e_commerce_app/feature/startup/bloc/onboarding_event.dart';
 import 'package:e_commerce_app/feature/startup/bloc/onboarding_screen_model.dart';
 import 'package:e_commerce_app/feature/startup/bloc/onboarding_state.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -22,18 +21,6 @@ class OnboardingWidget extends StatefulWidget {
 class _OnboardingWidgetState extends State<OnboardingWidget> {
   PageController controller = PageController(initialPage: 0);
   double animationProgress = 1;
-
-  @override
-  void initState() {
-    super.initState();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final user = FirebaseAuth.instance.currentUser;
-      if (user != null) {
-        context.go(Routes.homeScreen);
-      }
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
