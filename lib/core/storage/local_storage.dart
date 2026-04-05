@@ -28,6 +28,9 @@ class HiveSevice {
     await _box.delete(key);
   }
 
+  bool checkContainKey(String key) {
+    return _box.containsKey(key);
+  }
   // init method
 
   static Future<void> initHive() async {
