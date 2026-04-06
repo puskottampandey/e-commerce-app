@@ -7,6 +7,7 @@ import 'package:e_commerce_app/core/widget/overlay_load/overlay_loading_screen.d
 import 'package:e_commerce_app/core/widget/text_field/custom_textform_field.dart';
 import 'package:e_commerce_app/feature/authentication/presentation/bloc/auth_bloc.dart';
 import 'package:e_commerce_app/feature/authentication/presentation/bloc/auth_bloc_event.dart';
+import 'package:e_commerce_app/feature/authentication/presentation/bloc/check_box/check_box_bloc.dart';
 import 'package:e_commerce_app/feature/authentication/presentation/widget/auth_screen_wrapper.dart';
 import 'package:e_commerce_app/feature/authentication/presentation/widget/bottom_text_widget.dart';
 import 'package:e_commerce_app/feature/authentication/presentation/widget/common_auth_widget.dart';

@@ -1,5 +1,6 @@
 import 'package:e_commerce_app/core/bloc/common_state_bloc.dart';
 import 'package:e_commerce_app/core/route/route.dart';
+import 'package:e_commerce_app/core/storage/local_storage.dart';
 import 'package:e_commerce_app/core/theme/constant_color.dart';
 import 'package:e_commerce_app/core/utils/custom_toast.dart';
 import 'package:e_commerce_app/core/utils/form_validators.dart';
@@ -9,6 +10,8 @@ import 'package:e_commerce_app/core/widget/overlay_load/overlay_loading_screen.d
 import 'package:e_commerce_app/core/widget/text_field/custom_textform_field.dart';
 import 'package:e_commerce_app/feature/authentication/presentation/bloc/auth_bloc.dart';
 import 'package:e_commerce_app/feature/authentication/presentation/bloc/auth_bloc_event.dart';
+import 'package:e_commerce_app/feature/authentication/presentation/bloc/check_box/check_box_bloc.dart';
+import 'package:e_commerce_app/feature/authentication/presentation/bloc/check_box/check_box_event.dart';
 import 'package:e_commerce_app/feature/authentication/presentation/widget/auth_screen_wrapper.dart';
 import 'package:e_commerce_app/feature/authentication/presentation/widget/bottom_text_widget.dart';
 import 'package:e_commerce_app/feature/authentication/presentation/widget/common_auth_widget.dart';
@@ -31,7 +34,9 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passWordController = TextEditingController();
   bool _isAlreadyValidate = false;
-  bool _rememberMe = false;
+  final hive = HiveSevice();
+  final String email = "savedEmail";
+  final String checkRemeber = "isChecked";
 
   void login() {
     setState(() {
@@ -52,6 +57,15 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
   }
 
   @override
+  void initState() {
+    super.initState();
+
+    if (hive.checkContainKey(email)) {
+      _emailController.text = hive.getData(email);
+    }
+  }
+
+  @override
   void dispose() {
     _emailController.dispose();
     _passWordController.dispose();
@@ -63,9 +77,18 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
     final theme = Theme.of(context);
     final textTheme = theme.textTheme;
     return BlocConsumer<AuthBloc, BaseState>(
-      listener: (context, state) {
+      listener: (context, state) async {
         if (state is SuccessState) {
           CustomToast.successToast(msg: "Login successful");
+          final isChecked = context.read<CheckBoxBloc>().state;
+          if (isChecked) {
+            await hive.setData(email, _emailController.text);
+            await hive.setData(checkRemeber, true);
+          } else {
+            await hive.removeData(email);
+            await hive.setData(checkRemeber, false);
+          }
+          // ignore: use_build_context_synchronously
           context.go(Routes.homeScreen);
         } else if (state is ErrorState) {
           CustomToast.errorToast(msg: state.data);
@@ -125,32 +148,37 @@ class _LoginScreenWidgetState extends State<LoginScreenWidget> {
                     ],
                   ),
                 ),
-
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CheckBoxLogin(
-                      onChange: (value) {
-                        setState(() {
-                          _rememberMe = value;
-                        });
-                      },
-                      checkBoxText: "Remember me",
-                    ),
-                    GestureDetector(
-                      onTap: () {
-                        context.push(Routes.forgotScreen);
-                      },
-                      child: Text(
-                        "Forgot Password?",
-                        style: theme.textTheme.labelLarge?.copyWith(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.primaryColor,
+                BlocBuilder<CheckBoxBloc, bool>(
+                  buildWhen: (previous, current) => previous != current,
+                  builder: (context, state) {
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CheckBoxLogin(
+                          initialValue: hive.getData(checkRemeber),
+                          onChange: (value) {
+                            context.read<CheckBoxBloc>().add(
+                              CheckBoxEvent(isRemember: value),
+                            );
+                          },
+                          checkBoxText: "Remember me",
                         ),
-                      ),
-                    ),
-                  ],
+                        GestureDetector(
+                          onTap: () {
+                            context.push(Routes.forgotScreen);
+                          },
+                          child: Text(
+                            "Forgot Password?",
+                            style: theme.textTheme.labelLarge?.copyWith(
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w500,
+                              color: AppColors.primaryColor,
+                            ),
+                          ),
+                        ),
+                      ],
+                    );
+                  },
                 ),
                 CustomRoundedButton(
                   isLoading: state is LoadingState,
